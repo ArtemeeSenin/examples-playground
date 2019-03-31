@@ -4,4 +4,4 @@ To add a new page: create a folder in src/, add new entry and html-webpack-plugi
 
 ## Todo
 
-[ ] - Create bash script for adding new page
+- [ ] Create bash script for adding new page
