@@ -1,10 +1,26 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+function getEntries(pageList){
+    return pageList.reduce( (acc, page) => { acc[page] = `./src/${page}/${page}.js`; return acc; }, {});
+}
+
+function getPages(pageList){
+    return pageList.map( page => (
+        new HtmlWebpackPlugin({
+            inject: false,
+            chunks: [page],
+            filename: `${page}.html`,
+            template: path.join(__dirname, '/src/', page, '/index.html')
+        })
+    ))
+}
+
+var pageList = ['earthquake', 'observable-of'];
+
 module.exports = {
     entry: {
-        earthquake: './src/earthquake-locations/earthquake.js',
-        observableOf: './src/js-examples/observable-of.js'
+        ...getEntries(pageList)
     },
     output: {
         filename: '[name].js',
@@ -27,17 +43,6 @@ module.exports = {
         }]
     },
     plugins: [
-        new HtmlWebpackPlugin({
-            inject: false,
-            chunks: ['earthquake'],
-            filename: 'earthquake.html',
-            template: path.join(__dirname, '/src/earthquake-locations/index.html'),
-        }),
-        new HtmlWebpackPlugin({
-            inject: false,
-            chunks: ['observableOf'],
-            filename: 'observable-of.html',
-            template: path.join(__dirname, '/src/js-examples/index.html'),
-        }),
+      ...getPages(pageList)
     ]
 };
