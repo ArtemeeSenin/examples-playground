@@ -1,6 +1,6 @@
 const { getEntries, getPages } = require('./automation/processPageList');
 
-var pageList = ['earthquake', 'observable-of'];
+const pageList = ['earthquake', 'observable-of'];
 
 module.exports = {
   entry: {
