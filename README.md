@@ -21,4 +21,4 @@ brew link --force gettext
 
 ## Todo
 
-- [ ] Create bash script for adding new page
+- [x] Create bash script for adding new page
