@@ -1,20 +1,4 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-
-function getEntries(pageList){
-    return pageList.reduce( (acc, page) => { acc[page] = `./src/${page}/${page}.js`; return acc; }, {});
-}
-
-function getPages(pageList){
-    return pageList.map( page => (
-        new HtmlWebpackPlugin({
-            inject: false,
-            chunks: [page],
-            filename: `${page}.html`,
-            template: path.join(__dirname, '/src/', page, '/index.html')
-        })
-    ))
-}
+const { getEntries, getPages } = require('./automation/processPageList');
 
 var pageList = ['earthquake', 'observable-of'];
 
