@@ -4,9 +4,13 @@ To add a new page: create a folder in src/, add new entry and html-webpack-plugi
 
 ## Prepare
 
+To create new experiment folder run `zsh automation/add-page.sh yourfilename`. Or make that file executable by `chmod +x automation/add-page.sh` and then run `automation/add-page.sh yourfilename`
+
 ### MacOS
 
-On MacOS run following:
+On MacOS run following
+
+Required to use envsubst:
 
 ``` 
 brew install gettext
