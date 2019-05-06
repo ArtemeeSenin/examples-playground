@@ -1,4 +1,6 @@
-# rxjs-learning-examples
+# playground
+
+Simple project to use for learning.
 
 To add a new page: create a folder in src/, add new entry and html-webpack-plugin instance
 
@@ -22,3 +24,5 @@ brew link --force gettext
 ## Todo
 
 - [x] Create shell script for adding new page
+
+- [ ] Try Gulp or another soft for building (Rollup, Parcel)
